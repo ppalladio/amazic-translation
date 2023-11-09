@@ -1,6 +1,5 @@
 'use client';
 
-import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import useRegister from '@/app/hooks/useRegister';
@@ -9,7 +8,7 @@ import Modal from './Modal';
 import Heading from '@/components/ui/Heading';
 import Input from '../inputs/Input';
 import { toast } from 'react-hot-toast';
-import { Button } from '@/components/ui/button';
+import { PrimaryButton } from '@/components/ui/button';
 import useLogin from '@/app/hooks/useLogin';
 
 import { signIn } from 'next-auth/react';
@@ -80,20 +79,18 @@ const LoginModal = () => {
     const footerContent = (
         <div className="flex-col flex gap-4 mt-3">
             <hr />
-            <Button icon={FcGoogle} onClick={() => signIn('google')}>
-                continue with google
-            </Button>
-            <Button icon={AiFillGithub} onClick={() => signIn('github')}>
-                continue with github
-            </Button>
+            <PrimaryButton label="Continue with Google" icon={FcGoogle} onClick={() => signIn('google')}>
+			
+            
+            </PrimaryButton>
             <div className="text-neutral-500 text-center mt-4 font-light">
                 <div className="flex flex-row items-center gap-2 capitalize justify-center">
-                    <div>First time using airbnb?</div>
+                    <div>login modal</div>
                     <div
                         onClick={toggle}
                         className="text-neutral-800 capitalize cursor-pointer hover:underline"
                     >
-                        create an account
+                        Create an account
                     </div>
                 </div>
             </div>

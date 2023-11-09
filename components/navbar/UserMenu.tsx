@@ -8,6 +8,7 @@ import { SafeUser } from '@/app/types';
 import { useRouter } from 'next/navigation';
 import useRegister from '@/app/hooks/useRegister';
 import useLogin from '@/app/hooks/useLogin';
+import { Separator } from '@/components/ui/separator';
 
 interface UserMenuProps {
     currentUser?: SafeUser | null;
@@ -15,7 +16,7 @@ interface UserMenuProps {
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     const router = useRouter();
-    console.log(currentUser);
+    // console.log(currentUser);
     const register = useRegister();
     const login = useLogin();
     const [isOpen, setIsOpen] = useState(false);
@@ -30,14 +31,13 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <div
                     className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer capitalize"
                 >
-                    airbnb you home
+                UserMenu
                 </div>
                 <div
                     onClick={toggleOpen}
                     className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-100 flex flex-row items-center gap-3 rounded-full hover:shadow-md transition-all cursor-pointer"
                 >
                     <AiOutlineMenu />
-
                 </div>
             </div>
             {isOpen && (
@@ -53,16 +53,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                                     onClick={() => router.push('/favorites')}
                                     label="my favorites"
                                 />
-                                <MenuItem
-                                    onClick={() => router.push('/reservations')}
-                                    label="my reservations"
-                                />
-                                <MenuItem
-                                    onClick={() => router.push('/properties')}
-                                    label="my properties"
-                                />
-                             
-                                <hr />
+                                <Separator />
                                 <MenuItem
                                     onClick={() => signOut()}
                                     label="logout"

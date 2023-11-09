@@ -10,7 +10,7 @@ import Modal from './Modal';
 import Heading from '@/components/ui/Heading';
 import Input from '@/components/inputs/Input';
 import { toast } from 'react-hot-toast';
-import Button from '../Button';
+import { PrimaryButton } from '@/components/ui/button';
 import { signIn } from 'next-auth/react';
 import useLogin from '@/app/hooks/useLogin';
 
@@ -40,7 +40,8 @@ const RegisterModal = () => {
                 loginModal.onOpen();
             })
             .catch(() => {
-                toast.error('error');
+				
+                toast.error('error',data);
             })
             .finally(() => {
                 setIsLoading(false);
@@ -53,7 +54,7 @@ const RegisterModal = () => {
 
     const bodyContent = (
         <div className="flex flex-col gap-4 capitalize">
-            <Heading title="welcome to airbnb" subtitle="create an account" />
+            <Heading title="Welcome" subtitle="create an account" />
             <Input
                 id="email"
                 label="email"
